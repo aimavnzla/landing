@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: "Outfit", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(123, 63, 228, 0.4);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  /* AIMA brand gradient text */
+  .text-aima-gradient {
+    background: linear-gradient(135deg, #8a5fd4 0%, #7b3fe4 55%, #b99ae8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Subtle hexagonal pattern used on select sections */
+  .hex-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='64' height='56' viewBox='0 0 64 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32 0l27.7 16v32L32 64 4.3 48V16z' fill='none' stroke='%237B3FE4' stroke-opacity='0.10' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 64px 56px;
+  }
+
+  /* Conic aurora glow behind hero visual */
+  .aurora {
+    background: radial-gradient(
+      ellipse 80% 70% at 60% 40%,
+      rgba(123, 63, 228, 0.35) 0%,
+      rgba(73, 42, 142, 0.2) 45%,
+      transparent 75%
+    );
+  }
+
+  /* Premium hairline card border (double-bezel) */
+  .double-bezel {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    background: linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(18, 18, 18, 0.9) 100%);
+  }
+
+  .double-bezel::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(123, 63, 228, 0.16);
+    border-radius: calc(1.25rem - 4px);
+    pointer-events: none;
+  }
+
+  /* Funnel step styles */
+  .funnel-step {
+    @apply relative;
+  }
+
+  .funnel-connector {
+    @apply absolute top-1/2 right-[-50%] w-full h-px bg-gradient-to-r from-transparent via-aima-purple/40 to-transparent;
+  }
+
+  .funnel-kpi {
+    @apply relative;
+  }
+
+  /* Agent demo chat styles */
+  .demo-message {
+    @apply animate-fade-in-up;
+  }
+
+  /* Segment card styles */
+  .segment-card {
+    @apply transition-all duration-300;
+  }
+
+  .segment-card:hover {
+    @apply border-aima-purple/30 shadow-[0_20px_50px_rgba(123,63,228,0.15)];
+  }
+
+  /* KPI counter */
+  .stat-counter {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Objection card */
+  .objection-card {
+    @apply transition-all duration-300;
+  }
+
+  /* Bento grid cell */
+  .bento-cell {
+    @apply double-bezel p-6;
+  }
+
+  /* Focus visible for accessibility */
+  .focus-visible-ring:focus-visible {
+    @apply outline-none ring-2 ring-aima-purple/50 ring-offset-2 ring-offset-aima-950;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(123, 63, 228, 0.4);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(123, 63, 228, 0.6);
+  }
+}

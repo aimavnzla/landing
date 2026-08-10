@@ -1,0 +1,202 @@
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import * as LucideIcons from "lucide-react";
+import { HexLogo } from "./HexLogo";
+import { CTAContextual } from "./CTAContextual";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const IconComponents: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
+  Facebook: LucideIcons.Facebook,
+  Instagram: LucideIcons.Instagram,
+  Linkedin: LucideIcons.Linkedin,
+  Twitter: LucideIcons.Twitter,
+  Mail: LucideIcons.Mail,
+  ArrowRight: LucideIcons.ArrowRight,
+  MessageCircle: LucideIcons.MessageCircle,
+};
+
+const footerLinks = {
+  producto: [
+    { label: "Captación omnicanal", href: "#embudo" },
+    { label: "Precalificación IA", href: "#embudo" },
+    { label: "Follow-up automático", href: "#embudo" },
+    { label: "Handoff inteligente", href: "#embudo" },
+    { label: "Dashboard en vivo", href: "#agente-demo" },
+  ],
+  empresa: [
+    { label: "Nosotros", href: "#" },
+    { label: "Casos de éxito", href: "#" },
+    { label: "Blog RevOps", href: "#" },
+    { label: "Calculadora ROI", href: "#" },
+    { label: "Carreras", href: "#" },
+  ],
+  recursos: [
+    { label: "Documentación API", href: "#" },
+    { label: "Centro de ayuda", href: "#" },
+    { label: "Comunidad", href: "#" },
+    { label: "Webinars", href: "#" },
+    { label: "Changelog", href: "#" },
+  ],
+  legal: [
+    { label: "Privacidad", href: "#" },
+    { label: "Términos", href: "#" },
+    { label: "Cookies", href: "#" },
+    { label: "Seguridad", href: "#" },
+    { label: "GDPR / Ley 1581", href: "#" },
+  ],
+};
+
+const socialLinks = [
+  {icon: "Linkedin", href: "#", label: "LinkedIn" },
+  { icon: "Twitter", href: "#", label: "Twitter/X" },
+  { icon: "Instagram", href: "#", label: "Instagram" },
+  { icon: "Mail", href: "mailto:hola@aima.ai", label: "Email" },
+];
+
+export function Footer() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".footer-col", {
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          once: true,
+        },
+      });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <footer ref={containerRef} className="border-t border-white/10 bg-aima-950/50">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 lg:py-20">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          {/* Brand Column */}
+          <div className="footer-col lg:col-span-2 space-y-6">
+            <div className="flex items-center gap-2.5">
+              <HexLogo size={28} />
+              <div>
+                <p className="text-sm font-semibold tracking-wide">AIMA</p>
+                <p className="text-xs text-white/45">Transformación Operativa Inteligente</p>
+              </div>
+            </div>
+            <p className="text-sm text-white/50 max-w-xs leading-relaxed">
+              CRM omnicanal con IA para inmobiliarias. Capturamos, calificamos y nutrimos leads 24/7.
+              Tu equipo solo cierra.
+            </p>
+            <div className="flex items-center gap-4">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.icon}
+                  href={s.href}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 text-white/50 hover:bg-aima-purple/20 hover:text-aima-purple-light transition-colors"
+                  aria-label={s.label}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={s.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                >
+                  {(() => {
+                    const Icon = IconComponents[s.icon];
+                    return <Icon size={18} />;
+                  })()}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Product Column */}
+          <nav className="footer-col" aria-label="Producto">
+            <h4 className="font-semibold text-white mb-4">Producto</h4>
+            <ul className="space-y-3">
+              {footerLinks.producto.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-white/50 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Company Column */}
+          <nav className="footer-col" aria-label="Empresa">
+            <h4 className="font-semibold text-white mb-4">Empresa</h4>
+            <ul className="space-y-3">
+              {footerLinks.empresa.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-white/50 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Resources Column */}
+          <nav className="footer-col" aria-label="Recursos">
+            <h4 className="font-semibold text-white mb-4">Recursos</h4>
+            <ul className="space-y-3">
+              {footerLinks.recursos.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-white/50 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Legal Column */}
+          <nav className="footer-col" aria-label="Legal">
+            <h4 className="font-semibold text-white mb-4">Legal</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-white/50 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-white/35">
+              © {new Date().getFullYear()} AIMA. Todos los derechos reservados.
+            </p>
+
+            <div className="flex items-center gap-6 text-xs text-white/40">
+              <span>Hecho con IA para inmobiliarias que quieren escalar</span>
+              <CTAContextual variant="footer" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
