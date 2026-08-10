@@ -50,7 +50,7 @@ export function Nav() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5" aria-label="AIMA - Inicio">
             <img
-              src="/aima-logo-icon.png"
+              src={`${import.meta.env.BASE_URL}aima-logo-icon.png`}
               alt="AIMA"
               width="32"
               height="32"
