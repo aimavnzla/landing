@@ -29,9 +29,26 @@
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts: non-blocking so Google Fonts latency can never blank the page -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
+    </noscript>
   </head>
   <body class="bg-[#0a0a0a] text-white antialiased">
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <div style="padding: 48px 24px; text-align: center; font-family: system-ui, sans-serif; color: #fff; background: #0a0a0a; min-height: 100vh">
+          <p style="font-size: 20px; font-weight: 600; margin-bottom: 8px">AIMA</p>
+          <p>Esta página necesita JavaScript para mostrarse. Activa JavaScript en tu navegador y vuelve a cargar.</p>
+        </div>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
