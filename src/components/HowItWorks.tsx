@@ -106,11 +106,11 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section id="como-funciona" className="relative scroll-mt-24 py-24 sm:py-28" ref={containerRef} data-reveal>
+    <section id="como-funciona" className="relative scroll-mt-24 section-cut py-16 sm:py-20" ref={containerRef} data-reveal>
       <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-2/3 bg-gradient-to-r from-transparent via-aima-purple/40 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div data-reveal className="mx-auto max-w-2xl text-center mb-16">
+        <div data-reveal className="mx-auto max-w-2xl text-center mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-aima-purple/30 bg-aima-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-aima-purple-light">
             Sin complicaciones
           </span>
@@ -170,7 +170,7 @@ export function HowItWorks() {
         </div>
 
         {/* CTA */}
-        <div data-reveal className="mt-16">
+        <div data-reveal className="mt-12">
           <CTAContextual variant="comparison" />
         </div>
       </div>

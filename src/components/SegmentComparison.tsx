@@ -90,14 +90,14 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
     <section
       ref={containerRef}
       id="segmentos"
-      className={`relative scroll-mt-24 py-24 sm:py-28 ${className}`}
+      className={`relative scroll-mt-24 section-cut py-16 sm:py-20 ${className}`}
       data-reveal
     >
-      <div className="hex-pattern pointer-events-none absolute inset-0 opacity-30" />
+      <div className="hex-pattern pointer-events-none absolute inset-0 opacity-20" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-aima-purple/30 bg-aima-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-aima-purple-light">
             ¿Qué inmobiliaria eres?
           </span>
@@ -112,7 +112,7 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
         </div>
 
         {/* Segment Cards */}
-        <div className="grid gap-5 md:grid-cols-3 mb-16">
+        <div className="grid gap-5 md:grid-cols-3 mb-10">
           {segments.map((seg, index) => (
             <article
               key={seg.id}
@@ -196,15 +196,15 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
 
         {/* Comparison Table */}
         <div className="comparison-table double-bezel overflow-hidden" data-reveal>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto p-2 sm:p-3">
             <table className="w-full" role="table">
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="text-left p-4 sm:p-5 font-medium text-white/60 uppercase tracking-[0.1em] text-xs">Criterio</th>
+                  <th className="text-left px-5 sm:px-7 py-4 sm:py-5 font-medium text-white/60 uppercase tracking-[0.1em] text-xs">Criterio</th>
                   {segments.map((seg) => (
                     <th
                       key={seg.id}
-                      className="text-center p-4 sm:p-5 font-medium text-white"
+                      className="text-center px-5 sm:px-7 py-4 sm:py-5 font-medium text-white"
                       style={{ color: seg.color.primary }}
                     >
                       <div className="flex items-center justify-center gap-2">
@@ -224,7 +224,7 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
                     key={row.key}
                     className={`comparison-row border-b border-white/5 ${rowIndex % 2 === 0 ? 'bg-white/5' : ''}`}
                   >
-                    <td className="p-4 sm:p-5">
+                    <td className="px-5 sm:px-7 py-4 sm:py-5">
                       <div className="flex items-center gap-3 text-sm">
                         {(() => {
                         const Icon = IconComponents[row.icon];
@@ -234,7 +234,7 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
                       </div>
                     </td>
                     {segments.map((seg) => (
-                      <td key={seg.id} className="p-4 sm:p-5 text-center">
+                      <td key={seg.id} className="px-5 sm:px-7 py-4 sm:py-5 text-center">
                         <p className="text-sm text-white/80">{row.getValue(seg)}</p>
                       </td>
                     ))}
@@ -247,7 +247,7 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
 
         {/* Selected Segment Detail */}
         {segment && (
-          <div className="mt-12 double-bezel p-6 sm:p-8" data-reveal>
+          <div className="mt-10 double-bezel p-6 sm:p-8" data-reveal>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               <DetailCard
                 title="Canales"

@@ -90,7 +90,7 @@ export function AgentDemo({ className = '' }: AgentDemoProps) {
     <section
       ref={containerRef}
       id="agente-demo"
-      className={`relative scroll-mt-24 py-24 sm:py-28 ${className}`}
+      className={`relative scroll-mt-24 py-16 sm:py-20 ${className}`}
       data-reveal
     >
       {/* Background glow based on segment */}

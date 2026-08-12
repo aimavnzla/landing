@@ -48,6 +48,12 @@
     );
   }
 
+  /* Section "cut": alternate tone so consecutive dark sections read as distinct */
+  .section-cut {
+    background-color: #0e0b16;
+    background-image: linear-gradient(180deg, rgba(123, 63, 228, 0.07) 0%, rgba(14, 11, 22, 0) 50%);
+  }
+
   /* Premium hairline card border (double-bezel) */
   .double-bezel {
     position: relative;

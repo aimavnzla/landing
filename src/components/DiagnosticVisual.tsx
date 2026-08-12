@@ -59,11 +59,11 @@ export function DiagnosticVisual({ items = [] }: DiagnosticVisualProps) {
     <section
       ref={containerRef}
       id="diagnostico"
-      className="relative scroll-mt-24 py-24 sm:py-28"
+      className="relative scroll-mt-24 section-cut py-16 sm:py-20"
       data-reveal
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-aima-purple/30 bg-aima-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-aima-purple-light">
             El diagnóstico real
           </span>

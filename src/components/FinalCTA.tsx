@@ -41,12 +41,12 @@ export function FinalCTA() {
   }, []);
 
   return (
-    <section id="contacto" className="relative scroll-mt-24 py-24 sm:py-28" ref={containerRef} data-reveal>
+    <section id="contacto" className="relative scroll-mt-24 py-16 sm:py-20" ref={containerRef} data-reveal>
       <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-2/3 bg-gradient-to-r from-transparent via-aima-purple/40 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="hex-pattern relative overflow-hidden rounded-[2rem] border border-aima-purple/30 bg-gradient-to-br from-[#2a1650] via-aima-purple-dark to-[#1a0f30] px-6 py-20 text-center sm:px-12 final-cta-glow">
-          <div className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-aima-purple/30 blur-[100px]" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#140f22] via-[#100b1a] to-[#0c0914] px-6 py-14 text-center sm:px-12 sm:py-16 final-cta-glow">
+          <div className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[640px] -translate-x-1/2 rounded-full bg-aima-purple/15 blur-[100px]" />
 
           <div className="relative">
             <HexLogo size={52} className="mx-auto" />

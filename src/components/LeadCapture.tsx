@@ -119,15 +119,15 @@ export function LeadCapture({ className = '' }: LeadCaptureProps) {
     <section
       ref={containerRef}
       id="captacion"
-      className={`relative scroll-mt-24 py-24 sm:py-28 ${className}`}
+      className={`relative scroll-mt-24 py-16 sm:py-20 ${className}`}
       data-reveal
     >
       {/* Background */}
-      <div className="hex-pattern pointer-events-none absolute inset-0 opacity-30" aria-hidden="true" />
+      <div className="hex-pattern pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-14">
+        <div className="mx-auto max-w-2xl text-center mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-aima-purple/30 bg-aima-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-aima-purple-light">
             <IconComponents.Zap size={12} />
             Captación de leads
@@ -145,22 +145,22 @@ export function LeadCapture({ className = '' }: LeadCaptureProps) {
         </div>
 
         {/* Channel sources */}
-        <div className="mx-auto max-w-4xl mb-12">
+        <div className="mx-auto max-w-4xl mb-10">
           <p className="mb-5 text-center text-xs font-medium uppercase tracking-[0.16em] text-white/40">
             Todas tus fuentes, una sola bandeja
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-2.5">
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
             {channelSources.map((ch) => (
               <div
                 key={ch.label}
-                className="capture-channel flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-white/75 transition-colors hover:border-aima-purple/40 hover:bg-aima-purple/10"
+                className="capture-channel flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/75 transition-colors hover:border-aima-purple/40 hover:bg-aima-purple/10"
               >
                 {(() => {
                   const Icon = IconComponents[ch.icon];
-                  return <Icon size={15} className="text-aima-purple-light" />;
+                  return <Icon size={15} className="shrink-0 text-aima-purple-light" />;
                 })()}
-                <span>{ch.label}</span>
-                <span className="relative flex h-1.5 w-1.5">
+                <span className="truncate">{ch.label}</span>
+                <span className="relative flex h-1.5 w-1.5 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 </span>

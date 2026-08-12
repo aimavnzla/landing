@@ -139,13 +139,13 @@ export function ObjectionsSection({ className = '' }: ObjectionsSectionProps) {
     <section
       ref={containerRef}
       id="objeciones"
-      className={`relative scroll-mt-24 py-24 sm:py-28 ${className}`}
+      className={`relative scroll-mt-24 py-16 sm:py-20 ${className}`}
       data-reveal
     >
-      <div className="hex-pattern pointer-events-none absolute inset-0 opacity-30" />
+      <div className="hex-pattern pointer-events-none absolute inset-0 opacity-20" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-aima-purple/30 bg-aima-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-aima-purple-light">
             Preguntas frecuentes
           </span>
@@ -165,7 +165,7 @@ export function ObjectionsSection({ className = '' }: ObjectionsSectionProps) {
           ))}
         </div>
 
-        <div className="mt-12 text-center" data-reveal>
+        <div className="mt-10 text-center" data-reveal>
           <p className="text-white/60 mb-4">¿No encontraste tu respuesta?</p>
           <a
             href="https://wa.me/573000000000"

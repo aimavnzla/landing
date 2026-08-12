@@ -1,23 +1,12 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import * as LucideIcons from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { HexLogo } from "./HexLogo";
-import { CTAContextual } from "./CTAContextual";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
-
-const IconComponents: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
-  Facebook: LucideIcons.Facebook,
-  Instagram: LucideIcons.Instagram,
-  Linkedin: LucideIcons.Linkedin,
-  Twitter: LucideIcons.Twitter,
-  Mail: LucideIcons.Mail,
-  ArrowRight: LucideIcons.ArrowRight,
-  MessageCircle: LucideIcons.MessageCircle,
-};
 
 const footerLinks = {
   producto: [
@@ -41,21 +30,7 @@ const footerLinks = {
     { label: "Webinars", href: "#" },
     { label: "Changelog", href: "#" },
   ],
-  legal: [
-    { label: "Privacidad", href: "#" },
-    { label: "Términos", href: "#" },
-    { label: "Cookies", href: "#" },
-    { label: "Seguridad", href: "#" },
-    { label: "GDPR / Ley 1581", href: "#" },
-  ],
 };
-
-const socialLinks = [
-  {icon: "Linkedin", href: "#", label: "LinkedIn" },
-  { icon: "Twitter", href: "#", label: "Twitter/X" },
-  { icon: "Instagram", href: "#", label: "Instagram" },
-  { icon: "Mail", href: "mailto:hola@aima.ai", label: "Email" },
-];
 
 export function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +56,7 @@ export function Footer() {
   return (
     <footer ref={containerRef} className="border-t border-white/10 bg-aima-950/50">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 lg:py-20">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand Column */}
           <div className="footer-col lg:col-span-2 space-y-6">
             <div className="flex items-center gap-2.5">
@@ -95,23 +70,6 @@ export function Footer() {
               CRM omnicanal con IA para inmobiliarias. Capturamos, calificamos y nutrimos leads 24/7.
               Tu equipo solo cierra.
             </p>
-            <div className="flex items-center gap-4">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.icon}
-                  href={s.href}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 text-white/50 hover:bg-aima-purple/20 hover:text-aima-purple-light transition-colors"
-                  aria-label={s.label}
-                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
-                  rel={s.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                >
-                  {(() => {
-                    const Icon = IconComponents[s.icon];
-                    return <Icon size={18} />;
-                  })()}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Product Column */}
@@ -149,27 +107,10 @@ export function Footer() {
           </nav>
 
           {/* Resources Column */}
-          <nav className="footer-col" aria-label="Recursos">
+          <nav className="footer-col lg:col-span-2" aria-label="Recursos">
             <h4 className="font-semibold text-white mb-4">Recursos</h4>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
               {footerLinks.recursos.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/50 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Legal Column */}
-          <nav className="footer-col" aria-label="Legal">
-            <h4 className="font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -190,9 +131,15 @@ export function Footer() {
               © {new Date().getFullYear()} AIMA. Todos los derechos reservados.
             </p>
 
-            <div className="flex items-center gap-6 text-xs text-white/40">
+            <div className="flex flex-col items-center gap-4 text-xs text-white/40 sm:flex-row sm:gap-6">
               <span>Hecho con IA para inmobiliarias que quieren escalar</span>
-              <CTAContextual variant="footer" />
+              <a
+                href="#contacto"
+                className="group inline-flex items-center gap-2 rounded-xl bg-aima-purple px-4 py-2.5 text-sm font-semibold text-white hover:bg-aima-purple-light transition-colors"
+              >
+                Agendar demo gratis
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+              </a>
             </div>
           </div>
         </div>
