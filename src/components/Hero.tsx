@@ -2,9 +2,8 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as LucideIcons from 'lucide-react';
-import { CTAContextual } from './CTAContextual';
 import { useSegment } from '../hooks/useSegment';
-import { trackCTAClick, trackWhatsAppClick } from '../utils/analytics';
+import { trackWhatsAppClick } from '../utils/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -74,14 +73,6 @@ export function Hero({ className = '' }: HeroProps) {
 
     return () => ctx.revert();
   }, []);
-
-  const handlePrimaryClick = () => {
-    trackCTAClick('hero_primary', segment, 'hero');
-  };
-
-  const handleSecondaryClick = () => {
-    trackCTAClick('hero_secondary', segment, 'hero');
-  };
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick(segment, 'hero');
@@ -167,20 +158,6 @@ export function Hero({ className = '' }: HeroProps) {
 
             {/* CTAs */}
             <div className="hero-cta mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button
-                onClick={handlePrimaryClick}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-aima-purple px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(123,63,228,0.35)] hover:bg-aima-purple-light transition-all focus:outline-none focus:ring-2 focus:ring-aima-purple/50 focus:ring-offset-2 focus:ring-offset-aima-950"
-              >
-                Ver demo interactiva
-                <IconComponents.ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </button>
-              <button
-                onClick={handleSecondaryClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white hover:border-white/40 hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-aima-950"
-              >
-                <IconComponents.Calendar size={16} />
-                Calcular mi ROI
-              </button>
               <a
                 href="https://wa.me/573000000000"
                 target="_blank"

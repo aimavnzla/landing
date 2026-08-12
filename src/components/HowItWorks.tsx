@@ -171,7 +171,7 @@ export function HowItWorks() {
 
         {/* CTA */}
         <div data-reveal className="mt-12">
-          <CTAContextual variant="comparison" />
+          <CTAContextual variant="comparison" stretch />
         </div>
       </div>
     </section>

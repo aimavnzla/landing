@@ -14,9 +14,11 @@ interface CTAContextualProps {
   variant?: 'hero' | 'funnel' | 'comparison' | 'final' | 'footer';
   className?: string;
   overrideSegment?: Segment;
+  hideSecondary?: boolean;
+  stretch?: boolean;
 }
 
-export function CTAContextual({ variant = 'hero', className = '', overrideSegment }: CTAContextualProps) {
+export function CTAContextual({ variant = 'hero', className = '', overrideSegment, hideSecondary = false, stretch = false }: CTAContextualProps) {
   const { segment, setSegment } = useSegment();
   const activeSegment = overrideSegment || segment;
   const segmentData = getAllSegments().find(s => s.id === activeSegment);
@@ -116,28 +118,30 @@ export function CTAContextual({ variant = 'hero', className = '', overrideSegmen
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
         <button
           onClick={handlePrimaryClick}
-          className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-aima-purple px-6 py-4 text-base font-semibold text-white shadow-[0_12px_40px_rgba(123,63,228,0.35)] hover:bg-aima-purple-light transition-all focus:outline-none focus:ring-2 focus:ring-aima-purple/50 focus:ring-offset-2 focus:ring-offset-aima-950"
+          className={`group inline-flex items-center justify-center gap-2 rounded-xl bg-aima-purple px-6 py-4 text-base font-semibold text-white shadow-[0_12px_40px_rgba(123,63,228,0.35)] hover:bg-aima-purple-light transition-all focus:outline-none focus:ring-2 focus:ring-aima-purple/50 focus:ring-offset-2 focus:ring-offset-aima-950 ${stretch ? 'flex-1' : 'w-full sm:w-auto'}`}
         >
           {copy.primary}
           <IconComponents.ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
         </button>
 
-        <button
-          onClick={handleSecondaryClick}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-base font-medium text-white hover:border-white/40 hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-aima-950"
-        >
-          <IconComponents.Calendar size={18} />
-          {copy.secondary}
-        </button>
+        {!hideSecondary && (
+          <button
+            onClick={handleSecondaryClick}
+            className={`inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-base font-medium text-white hover:border-white/40 hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-aima-950 ${stretch ? 'flex-1' : 'w-full sm:w-auto'}`}
+          >
+            <IconComponents.Calendar size={18} />
+            {copy.secondary}
+          </button>
+        )}
 
         <a
           href="https://wa.me/573000000000"
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleWhatsAppClick}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-white/80 hover:border-white/30 hover:bg-white/10 transition-colors"
+          className={`inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-base font-medium text-white/80 hover:border-white/30 hover:bg-white/10 transition-colors ${stretch ? 'flex-1' : 'w-full sm:w-auto'}`}
         >
-          <IconComponents.MessageCircle size={16} />
+          <IconComponents.MessageCircle size={18} />
           {copy.whatsapp}
         </a>
       </div>

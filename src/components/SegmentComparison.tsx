@@ -43,28 +43,28 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.segment-card', {
-        y: 50,
+        y: 30,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'power3.out',
-        stagger: 0.15,
+        stagger: 0.12,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 80%',
-          once: true,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
         },
       });
 
       gsap.from('.comparison-row', {
-        y: 30,
+        y: 20,
         opacity: 0,
-        duration: 0.6,
+        duration: 0.5,
         ease: 'power2.out',
-        stagger: 0.08,
+        stagger: 0.06,
         scrollTrigger: {
           trigger: '.comparison-table',
-          start: 'top 85%',
-          once: true,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
         },
       });
     }, containerRef);
@@ -97,7 +97,7 @@ export function SegmentComparison({ className = '' }: SegmentComparisonProps) {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-10">
+        <div className="mx-auto max-w-2xl text-center mb-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-aima-purple/30 bg-aima-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-aima-purple-light">
             ¿Qué inmobiliaria eres?
           </span>

@@ -75,7 +75,7 @@ export function FinalCTA() {
 
             {/* CTAs */}
             <div className="mt-10" data-reveal>
-              <CTAContextual variant="final" />
+              <CTAContextual variant="final" hideSecondary stretch />
             </div>
 
             <p className="mt-6 text-sm text-white/50">
